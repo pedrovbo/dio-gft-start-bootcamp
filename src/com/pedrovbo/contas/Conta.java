@@ -1,3 +1,7 @@
+package com.pedrovbo.contas;
+
+import com.pedrovbo.banco.Cliente;
+import com.pedrovbo.interfaces.IConta;
 
 public abstract class Conta implements IConta {
 	

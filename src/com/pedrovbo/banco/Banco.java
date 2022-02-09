@@ -1,4 +1,7 @@
+package com.pedrovbo.banco;
 import java.util.List;
+
+import com.pedrovbo.contas.Conta;
 
 public class Banco {
 

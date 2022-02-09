@@ -1,3 +1,4 @@
+package com.pedrovbo.interfaces;
 
 public interface IConta {
 	

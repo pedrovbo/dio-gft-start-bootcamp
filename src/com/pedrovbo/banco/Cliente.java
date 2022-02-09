@@ -1,3 +1,4 @@
+package com.pedrovbo.banco;
 
 public class Cliente {
 

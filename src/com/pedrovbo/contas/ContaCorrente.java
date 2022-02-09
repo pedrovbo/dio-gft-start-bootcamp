@@ -1,3 +1,6 @@
+package com.pedrovbo.contas;
+
+import com.pedrovbo.banco.Cliente;
 
 public class ContaCorrente extends Conta {
 

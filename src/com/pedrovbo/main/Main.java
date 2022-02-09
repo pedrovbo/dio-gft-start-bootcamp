@@ -1,3 +1,9 @@
+package com.pedrovbo.main;
+
+import com.pedrovbo.banco.Cliente;
+import com.pedrovbo.contas.Conta;
+import com.pedrovbo.contas.ContaCorrente;
+import com.pedrovbo.contas.ContaPoupanca;
 
 public class Main {
 
