@@ -7,7 +7,8 @@ import lombok.*;
 public class Banco {
 
     @NonNull
-    @Getter(AccessLevel.PROTECTED) protected String nome;
+    @Getter(AccessLevel.PROTECTED)
+    protected String nome;
 
     //TODO: Implementar lista de clientes
 }
