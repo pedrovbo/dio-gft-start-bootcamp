@@ -13,7 +13,7 @@ public class ClientModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Column(nullable = false, unique = false, length = 50)
-    private String nome;
+    private String name;
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
@@ -25,12 +25,12 @@ public class ClientModel implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCpf() {

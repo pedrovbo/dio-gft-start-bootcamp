@@ -13,7 +13,7 @@ public class BankModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Column(nullable = false, unique = true, length = 20)
-    private String nomeBanco;
+    private String bankName;
 
     public UUID getId() {
         return id;
@@ -23,11 +23,11 @@ public class BankModel implements Serializable {
         this.id = id;
     }
 
-    public String getNomeBanco() {
-        return nomeBanco;
+    public String getBankName() {
+        return bankName;
     }
 
-    public void setNomeBanco(String nomeBanco) {
-        this.nomeBanco = nomeBanco;
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 }
