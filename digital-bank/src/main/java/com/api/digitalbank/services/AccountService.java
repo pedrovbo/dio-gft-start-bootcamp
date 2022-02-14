@@ -24,8 +24,8 @@ public class AccountService {
         return accountRepository.save(accountModel);
     }
 
-    public boolean existsByNumber(int accountNumber) {
-        return accountRepository.existsByNumber(accountNumber);
+    public boolean existsByAccountNumber(int accountNumber) {
+        return accountRepository.existsByAccountNumber(accountNumber);
     }
 
 

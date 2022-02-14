@@ -14,11 +14,11 @@ public class AccountModel implements IAccount, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Column(nullable = false, unique = false)
-    protected int agency;
+    private int agency;
     @Column(nullable = false, unique = false)
-    protected int accountNumber;
+    private int accountNumber;
     @Column(nullable = false, unique = false)
-    protected double balance;
+    private double balance;
 
     // protected Client client;
 

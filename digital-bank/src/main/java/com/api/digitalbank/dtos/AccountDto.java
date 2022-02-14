@@ -5,11 +5,11 @@ import javax.validation.constraints.NotBlank;
 public class AccountDto {
 
     @NotBlank
-    protected int agency;
+    private int agency;
     @NotBlank
-    protected int accountNumber;
+    private int accountNumber;
     @NotBlank
-    protected double balance;
+    private double balance;
 
     public int getAgency() {
         return agency;

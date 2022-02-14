@@ -31,7 +31,7 @@ public class AccountController {
 
     @PostMapping
     public ResponseEntity<Object> saveAccount(@RequestBody @Valid AccountDto accountDto) {
-        if (accountService.existsByNumber(accountDto.getAccountNumber())) {
+        if (accountService.existsByAccountNumber(accountDto.getAccountNumber())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Account number is already registered!");
         }
         var accountModel = new AccountModel();

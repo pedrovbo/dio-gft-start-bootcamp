@@ -9,6 +9,6 @@ import java.util.UUID;
 @Repository
 public interface AccountRepository extends JpaRepository<AccountModel, UUID> {
 
-    boolean existsByNumber(int accountNumber);
+    boolean existsByAccountNumber(int accountNumber);
 
 }
