@@ -5,11 +5,10 @@ import javax.validation.constraints.*;
 public class AccountDto {
 
     //TODO: Verificar questão da validação de campos para criação de conta, não permitir valores nulos, em branco ou vazios
-    @NotNull
+
+
     private int agency;
-    @NotNull
     private int accountNumber;
-    @NotNull
     private double balance;
 
     public int getAgency() {

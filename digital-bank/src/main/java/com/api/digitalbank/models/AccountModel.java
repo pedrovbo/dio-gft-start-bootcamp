@@ -17,7 +17,7 @@ public class AccountModel implements IAccount, Serializable {
     private int agency;
     @Column(nullable = false, unique = false)
     private int accountNumber;
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = true)
     private double balance;
 
     // protected Client client;
@@ -59,6 +59,13 @@ public class AccountModel implements IAccount, Serializable {
         return accountNumber;
     }
 
+    public void setAgency(int agency) {
+        this.agency = agency;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 
     public double getBalance() {
         return balance;
