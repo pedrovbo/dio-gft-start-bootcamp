@@ -1,14 +1,15 @@
 package com.api.digitalbank.dtos;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 
 public class AccountDto {
 
-    @NotBlank
+    //TODO: Verificar questão da validação de campos para criação de conta, não permitir valores nulos, em branco ou vazios
+    @NotNull
     private int agency;
-    @NotBlank
+    @NotNull
     private int accountNumber;
-    @NotBlank
+    @NotNull
     private double balance;
 
     public int getAgency() {

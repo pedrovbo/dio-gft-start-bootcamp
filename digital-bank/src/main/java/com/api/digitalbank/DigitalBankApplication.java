@@ -15,7 +15,7 @@ public class DigitalBankApplication {
 
     @GetMapping("/")
     public String index() {
-        return "Olá Mundo!";
+        return "Digital Bank!";
     }
 
 }
