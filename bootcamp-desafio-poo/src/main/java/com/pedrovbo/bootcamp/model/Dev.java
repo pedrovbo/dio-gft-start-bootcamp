@@ -26,6 +26,14 @@ public class Dev implements Serializable {
 //    private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
 //    private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -33,6 +41,8 @@ public class Dev implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+
 
     /*public Set<Conteudo> getConteudosInscritos() {
         return conteudosInscritos;

@@ -33,6 +33,14 @@ public class Bootcamp implements Serializable {
 //    private Set<Dev> devsInscritos = new HashSet<>();
 //    private Set<Conteudo> conteudos = new LinkedHashSet<>();
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -56,6 +64,8 @@ public class Bootcamp implements Serializable {
     public LocalDate getDataFinal() {
         return dataFinal;
     }
+
+
 
     /*public Set<Dev> getDevsInscritos() {
         return devsInscritos;
