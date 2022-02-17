@@ -1,17 +1,37 @@
 package com.pedrovbo.bootcamp.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class Bootcamp {
+@Entity
+@Table(name = "TB_BOOTCAMP")
+@SequenceGenerator(name="BOOT_SEQ", sequenceName = "BOOTCAMP_SEQ",
+    initialValue = 1, allocationSize = 1)
+public class Bootcamp implements Serializable {
+
+    private static final long serialVersionUID
+            = -4023522856316087762L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+        generator = "BOOT_SEQ")
+    private Long id;
+    @Column(name = "nome", nullable = false, length = 30)
     private String nome;
+    @Column(name = "descricao", nullable = false, length = 100)
     private String descricao;
+    @Column(name = "data_inicio", nullable = false)
     private final LocalDate dataInicial = LocalDate.now();
+    @Column(name = "data_fim", nullable = true)
     private final LocalDate dataFinal = dataInicial.plusDays(45);
-    private Set<Dev> devsInscritos = new HashSet<>();
-    private Set<Conteudo> conteudos = new LinkedHashSet<>();
+
+    //TODO: Estudar como implementar estes
+//    private Set<Dev> devsInscritos = new HashSet<>();
+//    private Set<Conteudo> conteudos = new LinkedHashSet<>();
 
     public String getNome() {
         return nome;
@@ -37,7 +57,7 @@ public class Bootcamp {
         return dataFinal;
     }
 
-    public Set<Dev> getDevsInscritos() {
+    /*public Set<Dev> getDevsInscritos() {
         return devsInscritos;
     }
 
@@ -51,5 +71,5 @@ public class Bootcamp {
 
     public void setConteudos(Set<Conteudo> conteudos) {
         this.conteudos = conteudos;
-    }
+    }*/
 }
