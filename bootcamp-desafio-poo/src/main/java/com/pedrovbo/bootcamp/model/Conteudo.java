@@ -1,6 +1,21 @@
 package com.pedrovbo.bootcamp.model;
 
-public abstract class Conteudo {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@SequenceGenerator(name="CURS_SEQ", sequenceName = "CURSO_SEQ",
+        initialValue = 1, allocationSize = 1)
+public abstract class Conteudo implements Serializable {
+
+    private static final long serialVersionUID
+            = -4023522856316087762L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "BOOT_SEQ")
+    private Long id;
+
     protected static final double XP_PADRAO = 10d;
 
     private String titulo;
