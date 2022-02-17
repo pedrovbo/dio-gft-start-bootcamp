@@ -1,6 +1,8 @@
 package com.api.digitalbank.dtos;
 
-import javax.validation.constraints.*;
+
+import com.api.digitalbank.models.BankModel;
+import com.api.digitalbank.models.ClientModel;
 
 public class AccountDto {
 
@@ -10,6 +12,7 @@ public class AccountDto {
     private int agency;
     private int accountNumber;
     private double balance;
+
 
     public int getAgency() {
         return agency;

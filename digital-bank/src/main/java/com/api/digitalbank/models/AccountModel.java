@@ -1,6 +1,5 @@
 package com.api.digitalbank.models;
-
-import com.api.digitalbank.interfaces.IAccount;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +7,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "ACCOUNT")
-public class AccountModel implements IAccount, Serializable {
+public class AccountModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,29 +18,14 @@ public class AccountModel implements IAccount, Serializable {
     private int accountNumber;
     @Column(nullable = false, unique = true)
     private double balance;
+    /*@OneToOne(optional = false)
+    //@JoinColumn(referencedColumnName = "id")
+    private BankModel bankModel;
+    @OneToOne(optional = false)
+    //@JoinColumn(referencedColumnName = "id")
+    private ClientModel clientModel;*/
 
-    // protected Client client;
 
-    @Override
-    public void withdraw(double value) {
-        this.balance -= value;
-    }
-
-    @Override
-    public void deposit(double value) {
-        this.balance += value;
-    }
-
-    @Override
-    public void transfer(double value, IAccount destinyAccount) {
-        this.withdraw(value);
-        destinyAccount.deposit(value);
-    }
-
-    @Override
-    public void printExtract() {
-
-    }
 
     public UUID getId() {
         return id;

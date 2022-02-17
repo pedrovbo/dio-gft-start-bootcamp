@@ -41,5 +41,26 @@ public class AccountService {
     public void delete(AccountModel accountModel) {
         accountRepository.delete(accountModel);
     }
+
+    // TODO: Implementar saque, depósito e transferência
+    /*public void withdraw(double value) {
+        this.balance -= value;
+    }
+
+
+    public void deposit(double value) {
+        this.balance += value;
+    }
+
+
+    public void transfer(double value, IAccount destinyAccount) {
+        this.withdraw(value);
+        destinyAccount.deposit(value);
+    }
+
+
+    public void printExtract() {
+
+    }*/
 }
 
