@@ -19,11 +19,11 @@ public class Curso implements Serializable {
     @Column(name = "carga_horaria", nullable = false)
     private int cargaHoraria;
 
-    @Column
+    @Column(name = "experiencia")
     protected static final double XP_PADRAO = 10d;
-    @Column(nullable = false, length = 20)
+    @Column(name = "titulo",nullable = false, length = 20)
     private String titulo;
-    @Column(length = 100)
+    @Column(name = "descricao",length = 100)
     private String descricao;
 
     //TODO: Pesquisar como implementar os atributos da interface Conteudo no Banco de Dados

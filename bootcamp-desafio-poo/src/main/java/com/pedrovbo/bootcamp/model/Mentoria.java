@@ -18,14 +18,13 @@ public class Mentoria implements Serializable {
             generator = "MEN_SEQ")
     private Long id;
 
-    @Column
+    @Column(name = "data")
     private LocalDate data;
-
     @Column
     protected static final double XP_PADRAO = 10d;
-    @Column(nullable = false, length = 20)
+    @Column(name = "titulo", nullable = false, length = 20)
     private String titulo;
-    @Column(length = 100)
+    @Column(name = "descricao", length = 100)
     private String descricao;
 
     public LocalDate getData() {
