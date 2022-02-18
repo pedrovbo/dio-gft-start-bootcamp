@@ -49,9 +49,19 @@ public class BootcampController {
     public ResponseEntity<Object> getOneBootcamp(@PathVariable(value = "id") Long id){
         Optional<Bootcamp> bootcampOptional = bootcampService.findById(id);
         if(!bootcampOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bootcamp não encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bootcamp não encontrado.");
         }
         return ResponseEntity.status(HttpStatus.OK).body(bootcampOptional.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteBootcamp(@PathVariable(value = "id") Long id){
+        Optional<Bootcamp> bootcampOptional = bootcampService.findById(id);
+        if (!bootcampOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bootcamp não encontrado.");
+        }
+        bootcampService.delete(bootcampOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Bootcamp deletado com sucesso.");
     }
 
 

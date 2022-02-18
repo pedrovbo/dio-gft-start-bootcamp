@@ -1,6 +1,7 @@
 package com.pedrovbo.bootcamp.controllers;
 
 import com.pedrovbo.bootcamp.dtos.DevDto;
+import com.pedrovbo.bootcamp.model.Bootcamp;
 import com.pedrovbo.bootcamp.model.Dev;
 import com.pedrovbo.bootcamp.model.Mentoria;
 import com.pedrovbo.bootcamp.services.DevService;
@@ -51,5 +52,15 @@ public class DevController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dev não encontrado");
         }
         return ResponseEntity.status(HttpStatus.OK).body(devOptional.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteDev(@PathVariable(value = "id") Long id){
+        Optional<Dev> devOptional = devService.findById(id);
+        if (!devOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dev não encontrado.");
+        }
+        devService.delete(devOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Dev deletado com sucesso.");
     }
 }

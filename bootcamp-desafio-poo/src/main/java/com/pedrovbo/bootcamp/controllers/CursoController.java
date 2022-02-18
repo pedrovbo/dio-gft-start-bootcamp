@@ -2,6 +2,7 @@ package com.pedrovbo.bootcamp.controllers;
 
 import com.pedrovbo.bootcamp.dtos.CursoDto;
 import com.pedrovbo.bootcamp.dtos.DevDto;
+import com.pedrovbo.bootcamp.model.Bootcamp;
 import com.pedrovbo.bootcamp.model.Curso;
 import com.pedrovbo.bootcamp.model.Dev;
 import com.pedrovbo.bootcamp.model.Mentoria;
@@ -53,6 +54,16 @@ public class CursoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso não encontrado");
         }
         return ResponseEntity.status(HttpStatus.OK).body(cursoOptional.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteCurso(@PathVariable(value = "id") Long id){
+        Optional<Curso> cursoOptional = cursoService.findById(id);
+        if (!cursoOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso não encontrado.");
+        }
+        cursoService.delete(cursoOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Curso deletado com sucesso.");
     }
 
 }
