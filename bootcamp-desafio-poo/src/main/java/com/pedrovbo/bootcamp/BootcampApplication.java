@@ -11,7 +11,7 @@ public class BootcampApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BootcampApplication.class, args);
-
+		//TODO: Implementar métodos GET, PUT e DELETE para todas as classes
 	}
 
 }
