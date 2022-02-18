@@ -66,4 +66,18 @@ public class CursoController {
         return ResponseEntity.status(HttpStatus.OK).body("Curso deletado com sucesso.");
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateCurso(@PathVariable(value = "id") Long id,
+                                            @RequestBody @Valid CursoDto cursoDto) {
+        Optional<Curso> cursoOptional = cursoService.findById(id);
+        if (!cursoOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso não encontrado.");
+        }
+
+        var curso = new Curso();
+        BeanUtils.copyProperties(cursoDto, curso);
+        curso.setId(cursoOptional.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body(cursoService.save(curso));
+    }
+
 }

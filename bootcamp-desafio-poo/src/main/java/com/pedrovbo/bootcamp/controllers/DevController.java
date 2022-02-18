@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -62,5 +63,19 @@ public class DevController {
         }
         devService.delete(devOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Dev deletado com sucesso.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateDev(@PathVariable(value = "id") Long id,
+                                                @RequestBody @Valid DevDto devDto) {
+        Optional<Dev> devOptional = devService.findById(id);
+        if (!devOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dev não encontrado.");
+        }
+
+        var dev = new Dev();
+        BeanUtils.copyProperties(devDto, dev);
+        dev.setId(devOptional.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body(devService.save(dev));
     }
 }

@@ -64,6 +64,20 @@ public class BootcampController {
         return ResponseEntity.status(HttpStatus.OK).body("Bootcamp deletado com sucesso.");
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateBootcamp(@PathVariable(value = "id") Long id,
+                                            @RequestBody @Valid BootcampDto bootcampDto) {
+        Optional<Bootcamp> bootcampOptional = bootcampService.findById(id);
+        if (!bootcampOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bootcamp não encontrado.");
+        }
+
+        var bootcamp = new Bootcamp();
+        BeanUtils.copyProperties(bootcampDto, bootcamp);
+        bootcamp.setId(bootcampOptional.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body(bootcampService.save(bootcamp));
+    }
+
 
 
 

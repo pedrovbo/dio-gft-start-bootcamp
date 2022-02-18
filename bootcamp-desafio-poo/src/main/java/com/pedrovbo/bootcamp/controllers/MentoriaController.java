@@ -1,6 +1,7 @@
 package com.pedrovbo.bootcamp.controllers;
 
 
+import com.pedrovbo.bootcamp.dtos.DevDto;
 import com.pedrovbo.bootcamp.dtos.MentoriaDto;
 
 import com.pedrovbo.bootcamp.model.Bootcamp;
@@ -65,6 +66,20 @@ public class MentoriaController {
         }
         mentoriaService.delete(mentoriaOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Mentoria deletada com sucesso.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateMentoria(@PathVariable(value = "id") Long id,
+                                            @RequestBody @Valid MentoriaDto mentoriaDto) {
+        Optional<Mentoria> mentoriaOptional = mentoriaService.findById(id);
+        if (!mentoriaOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mentoria não encontrada.");
+        }
+
+        var mentoria = new Mentoria();
+        BeanUtils.copyProperties(mentoriaDto, mentoria);
+        mentoria.setId(mentoriaOptional.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body(mentoriaService.save(mentoria));
     }
 
 
