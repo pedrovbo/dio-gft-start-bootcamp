@@ -3,6 +3,7 @@ package com.pedrovbo.bootcamp.controllers;
 
 import com.pedrovbo.bootcamp.dtos.MentoriaDto;
 
+import com.pedrovbo.bootcamp.model.Dev;
 import com.pedrovbo.bootcamp.model.Mentoria;
 import com.pedrovbo.bootcamp.services.MentoriaService;
 import org.springframework.beans.BeanUtils;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -43,6 +45,15 @@ public class MentoriaController {
             sort = "id",
             direction = Sort.Direction.ASC ) Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(mentoriaService.findAll(pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getOneMentoria(@PathVariable(value = "id") Long id){
+        Optional<Mentoria> mentoriaOptional = mentoriaService.findById(id);
+        if(!mentoriaOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mentoria não encontrada");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(mentoriaOptional.get());
     }
 
 

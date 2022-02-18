@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -43,6 +44,17 @@ public class BootcampController {
             direction = Sort.Direction.ASC ) Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(bootcampService.findAll(pageable));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getOneBootcamp(@PathVariable(value = "id") Long id){
+        Optional<Bootcamp> bootcampOptional = bootcampService.findById(id);
+        if(!bootcampOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bootcamp não encontrado");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(bootcampOptional.get());
+    }
+
+
 
 
 }

@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -41,5 +42,14 @@ public class DevController {
             sort = "id",
             direction = Sort.Direction.ASC ) Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(devService.findAll(pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getOneDev(@PathVariable(value = "id") Long id){
+        Optional<Dev> devOptional = devService.findById(id);
+        if(!devOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dev não encontrado");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(devOptional.get());
     }
 }

@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -43,6 +44,15 @@ public class CursoController {
             sort = "id",
             direction = Sort.Direction.ASC ) Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(cursoService.findAll(pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getOneCurso(@PathVariable(value = "id") Long id){
+        Optional<Curso> cursoOptional = cursoService.findById(id);
+        if(!cursoOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Curso não encontrado");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(cursoOptional.get());
     }
 
 }
