@@ -5,11 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<h1>Add new person</h1>
-<form action="#" th:action="@{/person}" th:object="${person}" method="post">
-    <p>Name: <input type="text" th:field="*{name}"/></p>
-    <p>Age: <input type="number" th:field="*{age}"/></p>
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+<h1>Empréstimo Livros</h1>
+<form action="#" th:action="@{/empresitmo}" th:object="${pessoa}" method="post">
+    <p>Nome: <input type="text" th:field="*{nome}"/></p>
+    <p>Título do Livro: <input type="text" th:field="*{livro.titulo}"/></p>
+
+    <p><input type="submit" value="Efetuar empréstimo"/> <input type="reset" value="Cancelar"/></p>
 </form>
 </body>
 </html>

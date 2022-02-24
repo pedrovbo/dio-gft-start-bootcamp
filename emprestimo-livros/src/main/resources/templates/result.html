@@ -5,18 +5,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<div th:if="${not #lists.isEmpty(people)}">
-    <h2>Person List</h2>
+<div th:if="${not #lists.isEmpty(pessoa)}">
+    <h2>Lista Pessoas</h2>
     <table class="glyphicon glyphicon-calendar">
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Age</th>
         </tr>
-        <tr th:each="person : ${people}">
-            <td th:text="${person.id}"></td>
-            <td th:text="${person.name}"></td>
-            <td th:text="${person.Age}"></td>
+        <tr th:each="pessoa : ${pessoa}">
+            <td th:text="${pessoa.id}"></td>
+            <td th:text="${pessoa.nome}"></td>
         </tr>
     </table>
 </div>

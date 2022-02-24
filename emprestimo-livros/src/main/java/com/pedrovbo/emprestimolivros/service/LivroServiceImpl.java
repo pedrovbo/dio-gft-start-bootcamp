@@ -3,9 +3,11 @@ package com.pedrovbo.emprestimolivros.service;
 import com.pedrovbo.emprestimolivros.model.Livro;
 import com.pedrovbo.emprestimolivros.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LivroServiceImpl implements LivroService{
 
     @Autowired
