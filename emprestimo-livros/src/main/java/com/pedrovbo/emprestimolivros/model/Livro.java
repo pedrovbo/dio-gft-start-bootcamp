@@ -13,6 +13,8 @@ public class Livro {
     private String titulo;
     private String autor;
     private String codigo;
+    private String status;
+    private String genero;
     private int prazoEmprestimo = 0;
 
     public Long getId() {
@@ -53,5 +55,13 @@ public class Livro {
 
     public void setPrazoEmprestimo(int prazoEmprestimo) {
         this.prazoEmprestimo = prazoEmprestimo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

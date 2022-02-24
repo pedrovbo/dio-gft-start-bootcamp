@@ -25,6 +25,17 @@ public class EmprestimoController {
         return "index";
     }
 
+    @RequestMapping(value = "/consulta-livros", method = RequestMethod.GET)
+    public String consultaLivros() {
+        return "consulta-livros";
+    }
+
+    @RequestMapping(value = "/lista-livros", method = RequestMethod.GET)
+    public String listaLivros() {
+        return "lista-livros";
+    }
+
+
     /*@RequestMapping(value = "/", method = RequestMethod.GET)
     public String greetingForm(Model model) {
         model.addAttribute("livro", new Pessoa());
