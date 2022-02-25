@@ -1,32 +1,13 @@
-package com.pedrovbo.emprestimolivros.model;
+package com.pedrovbo.emprestimolivros.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
+public class LivroDto {
 
-@Entity
-@Table(name = "BOOKS")
-public class Livro implements Serializable {
-
-    @Id
-    @GeneratedValue
-    private Long id;
     private String titulo;
     private String autor;
     private String codigo;
     private String status;
     private String genero;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
