@@ -64,4 +64,12 @@ public class Livro {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 }

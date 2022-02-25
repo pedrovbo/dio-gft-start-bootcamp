@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @Controller
 public class EmprestimoController {
@@ -35,18 +37,5 @@ public class EmprestimoController {
         return "lista-livros";
     }
 
-
-    /*@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String greetingForm(Model model) {
-        model.addAttribute("livro", new Pessoa());
-        return "greetings";
-    }
-
-    @RequestMapping(value = "/pessoa", method = RequestMethod.POST)
-    public String addPessoa(Model model, @ModelAttribute Pessoa pessoa) {
-        pessoaService.createPessoa(pessoa);
-        model.addAttribute("pessoa", pessoaService.getAllPessoas());
-        return "result";
-    }*/
 
 }
