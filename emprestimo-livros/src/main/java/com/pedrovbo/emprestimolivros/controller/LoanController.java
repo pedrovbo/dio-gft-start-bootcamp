@@ -1,10 +1,7 @@
 package com.pedrovbo.emprestimolivros.controller;
 
-import com.pedrovbo.emprestimolivros.dto.BookDto;
 import com.pedrovbo.emprestimolivros.dto.LoanDto;
-import com.pedrovbo.emprestimolivros.model.Book;
 import com.pedrovbo.emprestimolivros.model.Loan;
-import com.pedrovbo.emprestimolivros.model.User;
 import com.pedrovbo.emprestimolivros.service.LoanServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,6 @@
 package com.pedrovbo.emprestimolivros.controller;
 
-import com.pedrovbo.emprestimolivros.dto.BookDto;
 import com.pedrovbo.emprestimolivros.dto.UserDto;
-import com.pedrovbo.emprestimolivros.model.Book;
 import com.pedrovbo.emprestimolivros.model.User;
 import com.pedrovbo.emprestimolivros.service.UserServiceImpl;
 import org.springframework.beans.BeanUtils;
