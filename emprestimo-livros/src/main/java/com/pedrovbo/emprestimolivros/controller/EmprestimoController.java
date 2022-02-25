@@ -1,16 +1,11 @@
 package com.pedrovbo.emprestimolivros.controller;
 
-import com.pedrovbo.emprestimolivros.model.Livro;
-import com.pedrovbo.emprestimolivros.model.Pessoa;
 import com.pedrovbo.emprestimolivros.service.LivroService;
-import com.pedrovbo.emprestimolivros.service.PessoaService;
+import com.pedrovbo.emprestimolivros.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
@@ -19,7 +14,7 @@ public class EmprestimoController {
     @Autowired
     LivroService livroService;
     @Autowired
-    PessoaService pessoaService;
+    UsuarioService usuarioService;
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
