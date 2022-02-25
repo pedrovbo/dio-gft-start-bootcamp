@@ -11,26 +11,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 
-@Controller
+@RestController
+@RequestMapping("/emprestimo")
 public class EmprestimoController {
 
     @Autowired
     EmprestimoServiceImpl emprestimoServiceImpl;
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+ /*   @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
         return "index";
     }
-
+*/
     @PostMapping
     public ResponseEntity<Object> saveEmprestimo(@RequestBody @Valid EmprestimoDto emprestimoDto) {
         // TODO: Fazer validação para verificar se já existe um emprestimo semelhante
@@ -39,5 +37,7 @@ public class EmprestimoController {
         // reminder //
         return ResponseEntity.status(HttpStatus.CREATED).body(emprestimoServiceImpl.save(emprestimo));
     }
+
+
 
 }

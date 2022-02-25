@@ -1,25 +1,34 @@
 package com.pedrovbo.emprestimolivros.controller;
 
-import com.pedrovbo.emprestimolivros.service.LivroService;
+import com.pedrovbo.emprestimolivros.dto.LivroDto;
+import com.pedrovbo.emprestimolivros.model.Livro;
+import com.pedrovbo.emprestimolivros.service.LivroServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.validation.Valid;
+
+@RestController
+@RequestMapping("/livro")
 public class LivroController {
 
     @Autowired
-    LivroService livroService;
+    LivroServiceImpl livroServiceImpl;
 
-    @RequestMapping(value = "/consulta-livros", method = RequestMethod.GET)
-    public String consultaLivros() {
-        return "consulta-livros";
-    }
+    //TODO: Implementar consulta de livros
 
-    @RequestMapping(value = "/lista-livros", method = RequestMethod.GET)
-    public String listaLivros() {
-        return "lista-livros";
+    //TODO: Implementar lista de livros
+
+    @PostMapping
+    public ResponseEntity<Object> saveLivro(@RequestBody @Valid LivroDto livroDto) {
+        // TODO: Fazer validação para verificar se já existe um emprestimo semelhante
+        var livro = new Livro();
+        BeanUtils.copyProperties(livroDto, livro);
+        // reminder //
+        return ResponseEntity.status(HttpStatus.CREATED).body(livroServiceImpl.save(livro));
     }
 
 }
