@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pedrovbo</groupId>
-	<artifactId>emprestimo-livros</artifactId>
+	<artifactId>loan-livros</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>emprestimo-livros</name>
+	<name>loan-livros</name>
 	<description>Sistema para Empréstimo de Livros</description>
 	<properties>
 		<java.version>11</java.version>
