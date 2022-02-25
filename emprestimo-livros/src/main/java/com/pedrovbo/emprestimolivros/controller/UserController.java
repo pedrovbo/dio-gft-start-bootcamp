@@ -22,13 +22,6 @@ public class UserController {
     @Autowired
     UserServiceImpl userServiceImpl;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public ResponseEntity<Page<User>> getAllUsers(@PageableDefault(
-            sort = "id",
-            direction = Sort.Direction.ASC) Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(userServiceImpl.findAll(pageable));
-    }
-
     @PostMapping
     public ResponseEntity<Object> addUser(@RequestBody @Valid UserDto userDto){
         //TODO: Implementar validação de existência
@@ -37,5 +30,11 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userServiceImpl.save(user));
     }
 
+    @GetMapping
+    public ResponseEntity<Page<User>> getAllUsers(@PageableDefault(
+            sort = "id",
+            direction = Sort.Direction.ASC) Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(userServiceImpl.findAll(pageable));
+    }
 
 }
