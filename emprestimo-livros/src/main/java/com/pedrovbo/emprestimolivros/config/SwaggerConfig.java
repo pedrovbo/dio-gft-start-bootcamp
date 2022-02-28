@@ -1,8 +1,7 @@
-package com.pedrovbo.emprestimolivros.configs;
+package com.pedrovbo.emprestimolivros.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
