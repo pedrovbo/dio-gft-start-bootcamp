@@ -1,8 +1,5 @@
-package com.api.digitalbank.dtos;
+package com.api.digitalbank.dto;
 
-
-import com.api.digitalbank.models.BankModel;
-import com.api.digitalbank.models.ClientModel;
 
 public class AccountDto {
 

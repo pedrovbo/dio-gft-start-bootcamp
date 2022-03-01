@@ -1,6 +1,6 @@
 package com.api.digitalbank.controllers;
 
-import com.api.digitalbank.dtos.BankDto;
+import com.api.digitalbank.dto.BankDto;
 import com.api.digitalbank.models.BankModel;
 import com.api.digitalbank.services.BankService;
 import org.springframework.beans.BeanUtils;

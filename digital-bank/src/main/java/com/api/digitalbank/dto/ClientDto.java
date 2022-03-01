@@ -1,4 +1,4 @@
-package com.api.digitalbank.dtos;
+package com.api.digitalbank.dto;
 
 import javax.validation.constraints.NotBlank;
 
