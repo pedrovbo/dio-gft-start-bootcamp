@@ -1,4 +1,4 @@
-package com.pedrovbo.bootcamp.configs;
+package com.pedrovbo.bootcamp.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
